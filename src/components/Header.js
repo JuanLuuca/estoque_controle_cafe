@@ -42,11 +42,11 @@ const Header = () => {
           mr="2"
         ></IconButton>
       )}
-      <Text>LOGO</Text>
+      <Text>Moessner</Text>
       <Flex ml="auto">
         <HStack>
-          <Text>William Lucas</Text>
-          <Avatar size="md" name="william Lucas" />
+          <Text>João Henrique</Text>
+          <Avatar size="md" name="joao Henrique" />
         </HStack>
       </Flex>
     </Flex>
