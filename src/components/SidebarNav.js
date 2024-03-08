@@ -30,7 +30,7 @@ const SidebarNav = () => {
       </Stack>
       <Stack>
         <Text fontSize="xs" fontWeight="bold" color="gray.400">
-          ESTOQUE
+          VENDIDOS
         </Text>
         <Stack>
           <ChakraLink
@@ -46,7 +46,7 @@ const SidebarNav = () => {
               </Text>
             </Link>
           </ChakraLink>
-          <ChakraLink
+          {/* <ChakraLink
             _hover={{ bg: "gray.100" }}
             px="4"
             py="2"
@@ -58,8 +58,8 @@ const SidebarNav = () => {
                 ENTRADAS
               </Text>
             </Link>
-          </ChakraLink>
-          <ChakraLink
+          </ChakraLink> */}
+          {/* <ChakraLink
             _hover={{ bg: "gray.100" }}
             px="4"
             py="2"
@@ -71,7 +71,7 @@ const SidebarNav = () => {
                 SAÍDAS
               </Text>
             </Link>
-          </ChakraLink>
+          </ChakraLink> */}
         </Stack>
       </Stack>
     </Stack>
