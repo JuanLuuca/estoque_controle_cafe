@@ -27,56 +27,56 @@ const DashboardSolds = () => {
       totalSales += totalProductSales;
     });
 
-  }
 
-  const [salesData, setSalesData] = useState([
-    { month: `Total Vendas ${new Date().getFullYear()}`, sales: totalSales, price: totalSales },
-  ]);
-
-  return (
-    <Flex h="100vh" flexDirection="column">
-      <Header />
-
-      <Flex w="100%" my="6" maxW={1120} mx="auto" px="6" h="100vh">
-        <Sidebar />
-
-        <Box w="100%">
-          <VictoryChart
-            theme={VictoryTheme.material}
-            domainPadding={{ x: 50 }}
-            width={600}
-            height={400}
-          >
-            <VictoryAxis
-              tickValues={salesData.map(data => data.month)}
-            />
-            <VictoryAxis
-              dependentAxis
-              tickFormat={tick => `R$${tick}`}
-            />
-            <VictoryBar
-              data={salesData}
-              x="month"
-              y="sales"
-              labels={({ datum }) => `${formatPriceBRL(datum.price)}`}
-              labelComponent={<VictoryTooltip />}
-              barWidth={80}
-              animate={{
-                onExit: {
-                  duration: 200,
-                  before: () => ({
-                    _y: 0,
-                    fill: "orange",
-                    label: "BYE"
-                  })
-                }
-              }}
-            />
-          </VictoryChart>
-        </Box>
+    const [salesData, setSalesData] = useState([
+      { month: `Total Vendas ${new Date().getFullYear()}`, sales: totalSales, price: totalSales },
+    ]);
+  
+    return (
+      <Flex h="100vh" flexDirection="column">
+        <Header />
+  
+        <Flex w="100%" my="6" maxW={1120} mx="auto" px="6" h="100vh">
+          <Sidebar />
+  
+          <Box w="100%">
+            <VictoryChart
+              theme={VictoryTheme.material}
+              domainPadding={{ x: 50 }}
+              width={600}
+              height={400}
+            >
+              <VictoryAxis
+                tickValues={salesData.map(data => data.month)}
+              />
+              <VictoryAxis
+                dependentAxis
+                tickFormat={tick => `R$${tick}`}
+              />
+              <VictoryBar
+                data={salesData}
+                x="month"
+                y="sales"
+                labels={({ datum }) => `${formatPriceBRL(datum.price)}`}
+                labelComponent={<VictoryTooltip />}
+                barWidth={80}
+                animate={{
+                  onExit: {
+                    duration: 200,
+                    before: () => ({
+                      _y: 0,
+                      fill: "orange",
+                      label: "BYE"
+                    })
+                  }
+                }}
+              />
+            </VictoryChart>
+          </Box>
+        </Flex>
       </Flex>
-    </Flex>
-  );
+    );
+  }
 };
 
 export default DashboardSolds;
