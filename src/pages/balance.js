@@ -139,7 +139,7 @@ const Balance = () => {
                     </Td>
                     <Td color="gray.500">{item.product_name}</Td>
                     <Td color="gray.500">{formatPriceBRL(item.product_price)}</Td>
-                    <Td color="gray.500">{formatPriceBRL(totalSalesPrice)}</Td>
+                    <Td color="gray.500">{formatPriceBRL(item.totalSales)}</Td>
                   </Tr>
                 ))}
               </Tbody>

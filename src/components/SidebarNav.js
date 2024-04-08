@@ -46,19 +46,19 @@ const SidebarNav = () => {
               </Text>
             </Link>
           </ChakraLink>
-          {/* <ChakraLink
+          <ChakraLink
             _hover={{ bg: "gray.100" }}
             px="4"
             py="2"
             borderRadius={5}
-            bg={asPath === "/stockEntries" ? "gray.200" : ""}
+            bg={asPath === "/dashboardSolds" ? "gray.200" : ""}
           >
-            <Link href="/stockEntries">
+            <Link href="/dashboardSolds">
               <Text fontSize="md" fontWeight="medium" color="gray.500">
-                ENTRADAS
+                TOTAL VENDIDOS
               </Text>
             </Link>
-          </ChakraLink> */}
+          </ChakraLink>
           {/* <ChakraLink
             _hover={{ bg: "gray.100" }}
             px="4"
