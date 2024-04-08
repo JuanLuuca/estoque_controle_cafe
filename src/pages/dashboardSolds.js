@@ -6,25 +6,28 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryTooltip, VictoryTheme } f
 import { formatPriceBRL } from "../hooks/formatPrice";
 
 const DashboardSolds = () => {
-  const db_sales = localStorage.getItem("db_sales")
+  if (typeof window !== 'undefined') {
+    const db_sales = localStorage.getItem("db_sales")
       ? JSON.parse(localStorage.getItem("db_sales"))
       : [];
-  const db_products = localStorage.getItem("db_products")
+    const db_products = localStorage.getItem("db_products")
       ? JSON.parse(localStorage.getItem("db_products"))
       : [];
 
-  let totalSales = 0;
+    let totalSales = 0;
 
-  db_products.forEach((prod) => {
-    const sales = db_sales
-      .filter((sale) => sale.product_id === prod.id)
-      .map((sale) => sale.quantitySold)
-      .reduce((acc, cur) => acc + cur, 0);
+    db_products.forEach((prod) => {
+      const sales = db_sales
+        .filter((sale) => sale.product_id === prod.id)
+        .map((sale) => sale.quantitySold)
+        .reduce((acc, cur) => acc + cur, 0);
 
-    const totalProductSales = sales * prod.price;
+      const totalProductSales = sales * prod.price;
 
-    totalSales += totalProductSales;
-  });
+      totalSales += totalProductSales;
+    });
+
+  }
 
   const [salesData, setSalesData] = useState([
     { month: `Total Vendas ${new Date().getFullYear()}`, sales: totalSales, price: totalSales },
