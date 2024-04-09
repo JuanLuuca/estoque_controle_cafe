@@ -7,6 +7,7 @@ import { formatPriceBRL } from "../hooks/formatPrice";
 
 const DashboardSolds = () => {
   const [salesData, setSalesData] = useState([]);
+  const [TotalSalesState, setTotalSalesState] = useState(0);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -28,6 +29,8 @@ const DashboardSolds = () => {
         const totalProductSales = sales * prod.price;
 
         totalSales += totalProductSales;
+
+        setTotalSalesState(totalSales)
       });
 
       setSalesData([
@@ -44,6 +47,7 @@ const DashboardSolds = () => {
         <Sidebar />
 
         <Box w="100%">
+          <Text mt={4} fontSize={16.5} textAlign="center" fontWeight={"medium"}>Total de Vendas: {formatPriceBRL(TotalSalesState)}</Text>
           <VictoryChart
             theme={VictoryTheme.material}
             domainPadding={{ x: 50 }}
@@ -63,17 +67,7 @@ const DashboardSolds = () => {
               y="sales"
               labels={({ datum }) => `${formatPriceBRL(datum.price)}`}
               labelComponent={<VictoryTooltip />}
-              barWidth={80}
-              animate={{
-                onExit: {
-                  duration: 200,
-                  before: () => ({
-                    _y: 0,
-                    fill: "orange",
-                    label: "BYE"
-                  })
-                }
-              }}
+              barWidth={75}
             />
           </VictoryChart>
         </Box>
